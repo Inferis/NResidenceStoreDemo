@@ -11,3 +11,5 @@ ClientBin
 Deploy
 logs
 Elmah.Errors
+web.debug.config
+web.release.config
