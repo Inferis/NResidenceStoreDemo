@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace ResidenceStoreDemo.Controllers
 {
     using System.Linq;
     using Raven.Client;
+    using ResidenceStore;
     using ResidenceStore.RavenDB;
+    using ResidenceStore.Web.Http;
 
-    public class DemoController : ApiController
+    public class DemoController : ApiController, IResidenceStoreProvider
     {
         private readonly IDocumentStore store;
         private RavenResidenceStore residenceStore;
@@ -19,6 +20,7 @@ namespace ResidenceStoreDemo.Controllers
         }
 
         // GET api/demo
+        [AuthorizeWithResidence]
         public DemoInfo Get()
         {
             using (var session = store.OpenSession()) {
@@ -27,23 +29,16 @@ namespace ResidenceStoreDemo.Controllers
         }
 
         // POST api/demo
-        public void Post([FromBody]int tapTime)
+        [AuthorizeWithResidence]
+        public DemoInfo Post([FromBody]int? tapTime)
         {
-            store.UpdateDemoInfo(info => {
+            return store.UpdateDemoInfo(info => {
                 info.Residences = residenceStore.Count;
                 info.Taps++;
             });
         }
 
+        IResidenceStore IResidenceStoreProvider.ResidenceStore { get { return residenceStore; } }
     }
 
-    public class DemoInfo
-    {
-        public int Residences { get; set; }
-        public int Registrations { get; set; }
-        public int Verifications { get; set; }
-        public int Reauthorizations { get; set; }
-        public int Removals { get; set; }
-        public int Taps { get; set; }
-    }
 }

@@ -1,11 +1,9 @@
 namespace ResidenceStoreDemo.Controllers
 {
-    using System.Linq;
     using Raven.Client;
     using ResidenceStore;
     using ResidenceStore.RavenDB;
-    using ResidenceStore.Web;
-    using ResidenceStore.Web.Mvc;
+    using ResidenceStore.Web.Mvc.Controllers;
 
     public class ResidenceController : ResidenceVerifierController
     {

@@ -1,0 +1,20 @@
+{
+  "Name": "Temp/ResidenceInfos/ByAuthorizationTokenAndVerificationTokenAndVerified",
+  "Map": "from doc in docs.ResidenceInfos\r\nselect new { AuthorizationToken = doc.AuthorizationToken, VerificationToken = doc.VerificationToken, Verified = doc.Verified }",
+  "Maps": [
+    "from doc in docs.ResidenceInfos\r\nselect new { AuthorizationToken = doc.AuthorizationToken, VerificationToken = doc.VerificationToken, Verified = doc.Verified }"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": true,
+  "Stores": {},
+  "Indexes": {},
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Suggestions": {},
+  "TermVectors": {},
+  "Type": "Temp"
+}

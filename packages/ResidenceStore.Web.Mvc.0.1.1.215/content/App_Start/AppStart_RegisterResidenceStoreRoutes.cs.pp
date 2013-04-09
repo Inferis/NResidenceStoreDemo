@@ -1,11 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
-[assembly: WebActivator.PreApplicationStartMethod(typeof(ResidenceStoreDemo.AppStart_RegisterResidenceStoreRoutes), "Start")]
+using Microsoft.Web.Infrastructure;
+using ResidenceStore.Web.Mvc;
  
-namespace ResidenceStoreDemo {
-    using ResidenceStore.Web.Mvc;
-
+[assembly: WebActivator.PostApplicationStartMethod(typeof($rootnamespace$.AppStart_RegisterResidenceStoreRoutes), "Start")]
+ 
+namespace $rootnamespace$ {
     public static class AppStart_RegisterResidenceStoreRoutes {
         public static void Start() {
             // Set everything up with you having to do any work.

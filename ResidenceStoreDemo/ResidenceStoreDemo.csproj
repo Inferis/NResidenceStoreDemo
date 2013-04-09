@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -69,19 +70,25 @@
     </Reference>
     <Reference Include="ResidenceStore.Core, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ResidenceStore.Core.0.1.1.68\lib\net40\ResidenceStore.Core.dll</HintPath>
+      <HintPath>..\packages\ResidenceStore.Core.0.1.1.215\lib\net40\ResidenceStore.Core.dll</HintPath>
     </Reference>
     <Reference Include="ResidenceStore.RavenDB, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ResidenceStore.RavenDB.0.1.1.67\lib\net40\ResidenceStore.RavenDB.dll</HintPath>
+      <HintPath>..\packages\ResidenceStore.RavenDB.0.1.1.188\lib\net40\ResidenceStore.RavenDB.dll</HintPath>
     </Reference>
     <Reference Include="ResidenceStore.Web, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ResidenceStore.Web.0.1.1.67\lib\net40\ResidenceStore.Web.dll</HintPath>
+      <HintPath>..\packages\ResidenceStore.Web.0.1.1.215\lib\net40\ResidenceStore.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="ResidenceStore.Web.Http">
+      <HintPath>..\packages\ResidenceStore.Web.Http.0.1.1.215\lib\net45\ResidenceStore.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="ResidenceStore.Web.Mvc, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ResidenceStore.Web.Mvc.0.1.1.67\lib\net40\ResidenceStore.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\ResidenceStore.Web.Mvc.0.1.1.215\lib\net40\ResidenceStore.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteDebugger">
+      <HintPath>..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -146,6 +153,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AppStart_RegisterResidenceStoreRoutes.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\DemoInfo.cs" />
     <Compile Include="Controllers\ResidenceController.cs" />
     <Compile Include="DemoInfoUpdater.cs" />
     <Compile Include="Global.asax.cs">
@@ -179,10 +187,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Residence\VerificationResult.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\PublishProfiles\residencedemo.blergh.be.pubxml" />
+    <Content Include="Views\Residence\VerificationResult.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
